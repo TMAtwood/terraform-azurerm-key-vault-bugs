@@ -1,20 +1,24 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Terraform AzureRM Key Vault Errors Replication
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## Environment Specifications
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Terraform v0.12.29
+AzureRM provider 2.20.0
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Error can be replicated when running from either PowerShell Core 7.0.3 on Windows 10 2004 or in Ubuntu 20.04 (via WSL 2.0)
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Problem Description
+
+When attempting to create any Azure key vault related resource (key vault access policy, key vault secret, key vault certificate, etc.), the Terraform apply responds stating "Error: configuration for [resource] still contains unknown values during apply (this is a bug in Terraform; please report it!)
+
+A screenshot of the error is here:
+
+![Image 1](src/terraform-error.png)
+
+This repository contains Terraform code to replicate the error.
+
+## Instructions to run this repository
+
+1.  Make sure the terraform.tfvars is populated with the subscription ID.
+2.  Setup the Terraform backend in backend.tf
+  
